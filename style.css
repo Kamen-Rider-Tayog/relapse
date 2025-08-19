@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2vh;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#start-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3vh;
+    border: 0.2vh solid black;
+    border-radius: 1vh;
+    z-index: 100;
+    width: 90%;
+    max-width: 30vw;
+    height: auto;
+    min-height: 30vh;
+}
+
+#game-screen {
+    position: relative;
+    background-color: white;
+    z-index: 50;
+    width: 100%;
+}
+
+.game-container {
+    position: relative;
+    width: 90vw;
+    height: 70vh;
+    max-width: 80vh;
+    max-height: 80vw;
+    background-color: white;
+    border: 0.2vh solid black;
+    margin: 2vh auto;
+    overflow: hidden;
+    padding: 0 2vw;
+    border-radius: 3%;
+}
+
+#player {
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    max-width: 6vh;
+    max-height: 6vh;
+    background-color: black;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.food {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    max-width: 4vh;
+    max-height: 4vh;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.good-food {
+    background-color: blue;
+}
+
+.harmful-food {
+    background-color: red;
+}
+
+.score-container {
+    margin: 1vh 0;
+    text-align: center;
+    font-size: 2vh;
+    width: 100%;
+    padding: 0 4vw;
+}
+
+#blackout-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+}
+
+#lyrics-container {
+    font-size: 4vh;
+    text-align: center;
+    padding: 2vh;
+    max-width: 80%;
+    line-height: 1.6;
+    z-index: 40;
+}
+
+#game-over {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 3vh;
+    border: 0.2vh solid black;
+    border-radius: 1vh;
+    z-index: 200;
+    width: 90%;
+    max-width: 30vw;
+    height: auto;
+    min-height: 30vh;
+}
+
+button {
+    padding: 1.5vh 3vh;
+    font-size: 2vh;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0.5vh;
+    cursor: pointer;
+    margin: 1vh;
+    min-width: 20vw;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #start-screen, #game-over {
+        width: 60%;
+        max-width: 95%;
+        padding: 2vh;
+        min-height: 25vh;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5vh;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    button {
+        min-width: 30vw;
+        padding: 1.2vh 2.5vh;
+        font-size: 1.8vh;
+    }
+    
+    .game-container {
+        height: 60vh;
+        width: 95vw;
+    }
+    
+    #lyrics-container {
+        font-size: 4vh;
+        padding: 1.5vh;
+    }
+    
+    .score-container {
+        font-size: 1.8vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #start-screen, #game-over {
+        width: 70%;
+        max-width: 90%;
+        padding: 1.5vh;
+        min-height: 20vh;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 1vh;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .game-container {
+        height: 55vh;
+    }
+    
+    #lyrics-container {
+        font-size: 3vh;
+        padding: 1vh;
+    }
+    
+    .score-container {
+        font-size: 1.6vh;
+    }
+    
+    body {
+        padding: 1vh;
+    }
+}

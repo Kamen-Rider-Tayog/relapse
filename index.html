@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Game ni Tayog 2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="start-screen" class="screen">
+        <h1>Game ni Tayog</h1>
+        <button id="start-btn">Play</button>
+    </div>
+
+    <div id="game-screen" class="screen hidden">
+        <div class="game-container">
+            <div id="player"></div>
+            <div id="blackout-screen">
+                <div id="lyrics-container"></div>
+            </div>
+        </div>
+        <div class="score-container">
+            <p>Score: <span id="score">0</span></p>
+            <p>Lives: <span id="lives-count">3</span>/3</p>
+        </div>
+    </div>
+
+    <div id="game-over" class="screen hidden">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="final-score">0</span></p>
+        <button id="restart-btn">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
