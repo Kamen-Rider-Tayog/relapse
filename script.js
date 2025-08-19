@@ -73,13 +73,27 @@ function setupTouchControls() {
     isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     if (isTouchDevice) {
-        // Create touch control areas
-        createTouchControls();
-        
-        // Add touch event listeners
+        // Add touch event listeners to the document for general controls
         document.addEventListener('touchstart', handleTouchStart, { passive: false });
         document.addEventListener('touchend', handleTouchEnd, { passive: false });
         document.addEventListener('touchmove', handleTouchMove, { passive: false });
+        
+        // Add specific touch listener for the start button
+        startBtn.addEventListener('touchstart', handleButtonTouch, { passive: true });
+        restartBtn.addEventListener('touchstart', handleButtonTouch, { passive: true });
+        
+        // Create in-game touch controls
+        createTouchControls();
+    }
+}
+
+// Handle button touches
+function handleButtonTouch(e) {
+    e.preventDefault();
+    if (e.target.id === 'start-btn') {
+        startGame();
+    } else if (e.target.id === 'restart-btn') {
+        restartGame();
     }
 }
 
@@ -88,15 +102,36 @@ function createTouchControls() {
     const leftTouchArea = document.createElement('div');
     leftTouchArea.id = 'left-touch';
     leftTouchArea.className = 'touch-control';
+    leftTouchArea.style.position = 'absolute';
+    leftTouchArea.style.left = '0';
+    leftTouchArea.style.top = '0';
+    leftTouchArea.style.width = '50%';
+    leftTouchArea.style.height = '100%';
+    leftTouchArea.style.zIndex = '15';
     
     // Create right touch area
     const rightTouchArea = document.createElement('div');
     rightTouchArea.id = 'right-touch';
     rightTouchArea.className = 'touch-control';
+    rightTouchArea.style.position = 'absolute';
+    rightTouchArea.style.right = '0';
+    rightTouchArea.style.top = '0';
+    rightTouchArea.style.width = '50%';
+    rightTouchArea.style.height = '100%';
+    rightTouchArea.style.zIndex = '15';
     
     // Add to game container
     gameContainer.appendChild(leftTouchArea);
     gameContainer.appendChild(rightTouchArea);
+    
+    // Add event listeners to touch areas
+    leftTouchArea.addEventListener('touchstart', () => {
+        if (gameActive) moveLeft();
+    }, { passive: true });
+    
+    rightTouchArea.addEventListener('touchstart', () => {
+        if (gameActive) moveRight();
+    }, { passive: true });
 }
 
 function handleTouchStart(e) {
