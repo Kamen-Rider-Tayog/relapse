@@ -36,7 +36,7 @@ let isTouchDevice = false;
 const gameOverLyrics = [
     { text: "...", time: 0 },
     { text: "Nandito ako umiibig sa'yo", time: 4000 },
-    { text: "Kahit na nagdurugo ang puso", time: 11000 },
+    { text: "Kahit na nagdurugo ang puso", time: 12000 },
     { text: "At kung sakaling iwanan ka niya", time: 19000 },
     { text: "'Wag kang mag-alala,", time: 26000 },
     { text: "May nagmamahal sa 'yo", time: 30000 },
