@@ -160,7 +160,6 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     #start-screen, #game-over {
         width: 60%;
